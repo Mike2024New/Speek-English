@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h1>{{ title }}</h1>
+  <p>Введите перевод фразы: <br><span style="font-weight:bold; color:red">{{phrase}}</span></p>
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="answer" class="form-control mb-2" autocomplete="off">
+    <button type="submit" class="btn btn-warning">Проверить</button>
+  </form>
+</div>
+{% endblock content %}

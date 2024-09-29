@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h1>Результат</h1>
+  {% if result.status %}
+    <p style='color:green;font-weight:bold;'>Правильно, поздравляем, так держать!</p>
+    <p>На фразу: <br><span style='color:blue;font-weight:bold;'>{{ result.ru }}</span></p>
+    <p>Вы ввели: <br><span style='color:green;font-weight:bold;'>{{ result.answer }}</span></p>
+  {% else %}
+    <p style='color:red;font-weight:bold;'>К сожалению предложение введено не верно...</p>
+    <p>На фразу: <br><span style='color:blue;font-weight:bold;'>{{ result.ru }}</span></p>
+    <p>Вы ввели: <br><span style='color:red;font-weight:bold;'>{{ result.answer }}</span></p>
+    <p>А правильно будет: <br><span style='color:green;font-weight:bold;'>{{ result.en }}</span></p>
+  {% endif %}
+  <a href="{% url "trainer:index" %}">продолжить</a>
+</div>
+{% endblock content %}
